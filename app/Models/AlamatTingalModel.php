@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class AlamatTingalModel extends Model
 {
-    protected $table            = 'alamat_tinggal';
+    protected $table            = 'alamattinggal';
     protected $primaryKey       = 'kode';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

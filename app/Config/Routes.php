@@ -14,14 +14,14 @@ $routes->group('jurusan', function($routes){
     $routes->add('hapus/(:any)', 'Jurusan::hapus/$1');
 });
 
-$routes->group('orang_tua', function($routes){
+$routes->group('orangtua', function($routes){
     $routes->get('/', 'OrangTua::index');
     $routes->add('tambah', 'OrangTua::tambah');
     $routes->add('ubah/(:any)', 'OrangTua::ubah/$1');
     $routes->add('hapus/(:any)', 'OrangTua::hapus/$1');
 });
 
-$routes->group('alamat_tinggal', function($routes){
+$routes->group('alamat', function($routes){
     $routes->get('/', 'AlamatTinggal::index');
     $routes->add('tambah', 'AlamatTinggal::tambah');
     $routes->add('ubah/(:any)', 'AlamatTinggal::ubah/$1');
