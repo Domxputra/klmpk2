@@ -6,7 +6,9 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        $data ['title'] = "";
-        return view('home', $data);
+        if(is_null(session()->get("isLogin"))){
+            return redirect()->to(base_url('authentication'));
+        }
+        return view('welcome_message');
     }
 }

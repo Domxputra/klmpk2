@@ -7,6 +7,14 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/', 'Home::index');
+$routes->get('user/view', 'User::index');
+
+$routes->group('authentication', function($routes){
+    $routes->get('/', 'Auth::index');
+    $routes->add('login', 'Auth::login');
+    $routes->get('logout', 'Auth::logout');
+});
+
 $routes->group('jurusan', function($routes){
     $routes->get('/', 'Jurusan::index');
     $routes->add('tambah', 'Jurusan::tambah');
