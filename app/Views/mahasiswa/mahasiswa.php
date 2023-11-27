@@ -27,7 +27,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($mahasiswa as $key => $item) : ?>
+                <?php foreach ($mhs as $key => $item) : ?>
                   <tr>
                     <td>
                       <?= $key + 1 ?></td>
