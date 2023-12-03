@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4>Tambah Mahasiswa</h4>
             </div>
-            <form action="" method="post">
+            <form action="<?= base_url('mahasiswa/tambah') ?>" method="post">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">Nama Lengkap</label>

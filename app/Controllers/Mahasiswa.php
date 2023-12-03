@@ -28,7 +28,9 @@ class Mahasiswa extends BaseController
                 //throw $th;
             }
 
-        }else return view('mahasiswa/tambah');
+        }else{ 
+            return view('mahasiswa/tambah');
+        } 
     }
 
     public function ubah($id=null)
