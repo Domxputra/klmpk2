@@ -14,12 +14,12 @@ class Auth extends BaseController
     }
     public function index()
     {
-        
         $numRow = $this->user->countAllResults();
         if($numRow==0)
             $this->user->insert(['username'=>'admin', 'password'=>password_hash('admin', PASSWORD_DEFAULT), 'akses'=>'Admin']);
         return view('auth');
     }
+
     function login() {
         $param= $this->request->getPost();
         $user = $this->user->where('username', $param['username'])->first();
@@ -52,4 +52,10 @@ class Auth extends BaseController
             return view('auth');
         }
     }
+
+    function logout(){
+        session()->destroy();
+        return redirect()->to(base_url('authentication'));
+    }
+    
 }

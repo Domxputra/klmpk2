@@ -8,6 +8,9 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 $routes->get('user/view', 'User::index');
+$routes->get('/register', 'Register::index');
+$routes->post('/register/process', 'Register::process');
+
 
 $routes->group('authentication', function($routes){
     $routes->get('/', 'Auth::index');
@@ -38,7 +41,7 @@ $routes->group('alamat', function($routes){
 
 $routes->group('mahasiswa', function($routes){
     $routes->get('/', 'Mahasiswa::index');
-    $routes->add('tambah', 'Mahasiswa::tambah');
+    $routes->post('tambah', 'Mahasiswa::tambah');
     $routes->add('ubah/(:any)', 'Mahasiswa::ubah/$1');
     $routes->add('hapus/(:any)', 'Mahasiswa::hapus/$1');
 });
