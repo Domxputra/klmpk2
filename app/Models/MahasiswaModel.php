@@ -21,6 +21,7 @@ class MahasiswaModel extends Model
         "email",
         "no_tlp",
         "sumber_biaya",
-        "informasi"
+        "informasi",
+        "jurusan_kode"
     ];
 }

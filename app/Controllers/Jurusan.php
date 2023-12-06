@@ -10,10 +10,11 @@ class Jurusan extends BaseController
 
     protected $jrs;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->jrs = new JurusanModel();
     }
-    
+
     public function index()
     {
         $data['jurusan'] = $this->jrs->findAll();
@@ -22,18 +23,17 @@ class Jurusan extends BaseController
     public function tambah()
     {
         $item = $this->request->getPost();
-        if(count($item)> 0 ){
+        if (count($item) > 0) {
             try {
                 $this->jrs->insert($item);
                 return redirect()->to(base_url('jurusan'));
             } catch (\Throwable $th) {
                 //throw $th;
             }
-
-        }else return view('jurusan/tambah');
+        } else return view('jurusan/tambah');
     }
-   
-    public function ubah($id=null)
+
+    public function ubah($id = null)
     {
         $item = $this->request->getPost();
         if (isset($item['jurusan'])) {
@@ -41,21 +41,21 @@ class Jurusan extends BaseController
             if (count($item) > 0) {
                 try {
                     $value = [
-                        "jurusan"=>$item['jurusan'],
+                        "jurusan" => $item['jurusan'],
                     ];
-                    $this->jrs->update($id,$value);
+                    $this->jrs->update($id, $value);
                     return redirect()->to(base_url('jurusan'));
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
             }
-        }else{
+        } else {
             $item['item'] = $this->jrs->where('kode', $id)->first();
             return view('jurusan/ubah_jurusan', $item);
-        } 
-    } 
+        }
+    }
 
-    
+
     public function hapus($id)
     {
         $this->jrs->delete($id);

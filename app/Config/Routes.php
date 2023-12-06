@@ -15,7 +15,7 @@ $routes->post('/register/process', 'Register::process');
 $routes->group('authentication', function ($routes) {
     $routes->get('/', 'Auth::index');
     $routes->add('login', 'Auth::login');
-    $routes->get('logout', 'Auth::logout');
+    $routes->add('logout', 'Auth::logout');
 });
 
 $routes->group('jurusan', function ($routes) {

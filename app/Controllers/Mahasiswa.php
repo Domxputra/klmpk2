@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\JurusanModel;
 use App\Models\MahasiswaModel;
 
 class Mahasiswa extends BaseController
 {
     protected $mhs;
+    protected $jrs;
 
     public function __construct()
     {
         $this->mhs = new MahasiswaModel();
+        $this->jrs = new JurusanModel();
     }
     public function index()
     {
@@ -20,7 +23,9 @@ class Mahasiswa extends BaseController
     }
     public function tambah()
     {
+        $data['jurusan'] = $this->jrs->findAll();
         $item = $this->request->getPost();
+        // dd($item);
         if (count($item) > 0) {
             try {
                 $this->mhs->insert($item);
@@ -29,7 +34,7 @@ class Mahasiswa extends BaseController
                 //throw $th;
             }
         } else {
-            return view('mahasiswa/tambah');
+            return view('mahasiswa/tambah', $data);
         }
     }
 

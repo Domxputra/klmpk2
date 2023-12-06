@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="text" class="form-control" name="email_mhs_baru" placeholder="Masukan Email">
+                        <input type="text" class="form-control" name="email" placeholder="Masukan Email">
                     </div>
                     <div class="form-group">
                         <label for="">No Telepon</label>
