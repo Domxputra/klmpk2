@@ -3,13 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\MahasiswaModel;
 use App\Models\OrangTuaModel;
 
 class OrangTua extends BaseController
 {
     protected $ot;
-    public function __construct() {
+    protected $mhs;
+    public function __construct()
+    {
         $this->ot = new OrangTuaModel();
+        $this->mhs = new MahasiswaModel();
     }
     public function index()
     {
@@ -18,40 +22,41 @@ class OrangTua extends BaseController
     }
     public function tambah()
     {
+        $data['mahasiswa'] = $this->mhs->findAll();
         $item = $this->request->getPost();
-        if(count($item)> 0 ){
+        if (count($item) > 0) {
             try {
                 $this->ot->insert($item);
                 return redirect()->to(base_url('orangtua'));
             } catch (\Throwable $th) {
                 //throw $th;
             }
-
-        }else return view('orangtua/tambah');
+        } else return view('orangtua/tambah', $data);
     }
-    public function ubah($id)
+    public function ubah($id = null)
     {
         $item = $this->request->getPost();
-        if (isset($item['orangtua'])) {
+        // dd($item['nik_ibu']);
+        if (isset($item['nik_ibu'])) {
             $item = $this->request->getPost();
             if (count($item) > 0) {
                 try {
                     $value = [
-                        "nik_ayah"=>$item['nik_ayah'],
-                        "nik_ibu"=>$item['nik_ibu'],
-                        "nama_ayah"=>$item['nama_ayah'],
-                        "nama_ibu"=>$item['nama_ibu'],
+                        "nik_ayah" => $item['nik_ayah'],
+                        "nik_ibu" => $item['nik_ibu'],
+                        "nama_ayah" => $item['nama_ayah'],
+                        "nama_ibu" => $item['nama_ibu'],
                     ];
-                    $this->ot->update($id,$value);
+                    $this->ot->update($id, $value);
                     return redirect()->to(base_url('orangtua'));
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
             }
-        }else{
-            $item['item'] = $this->ot->where('orangtua', $id)->first();
+        } else {
+            $item['item'] = $this->ot->where('kode', $id)->first();
             return view('orangtua/ubah', $item);
-        } 
+        }
     }
     public function hapus($id)
     {

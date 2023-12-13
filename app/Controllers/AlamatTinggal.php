@@ -4,13 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AlamatTingalModel;
+use App\Models\MahasiswaModel;
 
 class AlamatTinggal extends BaseController
 {
 
     protected $at;
+    protected $mhs;
+
     public function __construct(){
         $this->at = new AlamatTingalModel();
+        $this->mhs = new MahasiswaModel();
+        
     }
     public function index()
     {
@@ -20,6 +25,7 @@ class AlamatTinggal extends BaseController
 
     public function tambah()
     {
+        $data['mahasiswa'] = $this->mhs->findAll();
         $item = $this->request->getPost();
         if(count($item)> 0 ){
             try {
@@ -29,21 +35,21 @@ class AlamatTinggal extends BaseController
                 //throw $th;
             }
 
-        }else return view('alamat/tambah');
+        }else return view('alamat/tambah', $data);
     }
    
     public function ubah($id=null)
     {
         $item = $this->request->getPost();
-        if (isset($item['alamat'])) {
+        if (isset($item['jalan'])) {
             $item = $this->request->getPost();
             if (count($item) > 0) {
                 try {
                     $value = [
-                        "jalan"=>$item['jalan'],
-                        "kelurahan"=>$item['kelurahan'],
-                        "rt_rw"=>$item['rt_rw'],
-                        "kode_pos"=>$item['kode_pos'],
+                        "jalan" => $item['jalan'],
+                        "kelurahan" => $item['kelurahan'],
+                        "rt_rw" => $item['rt_rw'],
+                        "kode_pos" => $item['kode_pos'],
                     ];
                     $this->at->update($id,$value);
                     return redirect()->to(base_url('alamat'));

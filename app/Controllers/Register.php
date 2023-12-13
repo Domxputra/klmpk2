@@ -14,3 +14,4 @@ class Register extends BaseController
     {
        
 }
+}

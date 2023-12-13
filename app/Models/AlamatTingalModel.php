@@ -12,5 +12,5 @@ class AlamatTingalModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["jalan", "kelurahan", "rt_rw", "kode_pos"];
+    protected $allowedFields    = ["jalan", "kelurahan", "rt_rw", "kode_pos", "mahasiswa_kode"];
 }

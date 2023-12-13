@@ -40,8 +40,8 @@
                   <td><?= $item['sumber_biaya'] ?></td>
                   <td><?= $item['informasi'] ?></td>
                   <td>
-                    <a href="<?= base_url("orangtua/ubah/") . $item['nik'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="<?= base_url("orangtua/hapus/") . $item['nik'] ?>" class="btn btn-danger btn-sm">Hapus</a>
+                    <a href="<?= base_url("mahasiswa/ubah/") . $item['kode'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="<?= base_url("mahasiswa/hapus/") . $item['kode'] ?>" class="btn btn-danger btn-sm">Hapus</a>
                   </td>
                 </tr>
               <?php endforeach ?>

@@ -13,12 +13,12 @@
                         <input type="text" class="form-control" name="nama_lengkap" placeholder="masukkan Nama Lengkap">
                     </div>
                     <div class="form-group">
-                        <label for="">Tangga Lahir</label>
-                        <input type="text" class="form-control" name="tanggal_lahir" placeholder="masukkan Tanggal Lahir">
+                        <label for="">Tanggal Lahir</label>
+                        <input type="date" class="form-control" name="tanggal_lahir" placeholder="masukkan Tanggal Lahir">
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Kelamin</label>
-                        <input type="text" class="form-control" name="jenis_kelamin" placeholder="masukkan Jenis Kelamin">
+                        <input type="text" class="form-control" name="jenis_kelamin" placeholder="masukkan Tanggal Lahir">
                     </div>
                     <div class="form-group">
                         <label for="">Asal SMA/SMK/STM</label>

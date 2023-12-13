@@ -13,23 +13,23 @@
           <div class="form-group">
             <label for="">Jalan</label>
             <input type="text" 
-              class="form-control" name="jalan" aria-describedby="helpId" placeholder="nama">
+              class="form-control" name="jalan" aria-describedby="helpId" placeholder="jalan" value="<?= $item['jalan']  ?>" >
           </div>
           <div class="form-group">
             <label for="">Kelurahan</label>
             <input type="text" 
-              class="form-control" name="kelurahan" aria-describedby="helpId" placeholder="Input Kontak">
+              class="form-control" name="kelurahan" aria-describedby="helpId" placeholder="Kelurahan" value="<?= $item['kelurahan']  ?>"  >
           </div>
           <div class="form-group">
             <label for="">RT/Rw</label>
-            <input type="email" 
-              class="form-control" name="rt_rw" aria-describedby="helpId" placeholder="input email">
+            <input type="text" 
+              class="form-control" name="rt_rw" aria-describedby="helpId" placeholder="rt/rw" value="<?= $item['rt_rw']  ?>" >
           </div>
           <div class="form-group">
             <label for="">kode Pos</label>
-            <input class="form-control" name="kode_pos" aria-describedby="helpId" placeholder="Kode pos">
+            <input class="form-control" name="kode_pos" aria-describedby="helpId" placeholder="kode pos" value="<?= $item['kode_pos']  ?>" >
           </div>
-          <button type="submit" class="btn btn-primary btn-sm" name="ubah">Simpan</button>
+          <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
         </form>
       </div>
       <!-- /.panel-body -->

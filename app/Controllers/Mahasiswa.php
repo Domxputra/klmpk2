@@ -41,7 +41,7 @@ class Mahasiswa extends BaseController
     public function ubah($id = null)
     {
         $item = $this->request->getPost();
-        if (isset($item['mahasiswa'])) {
+        if (isset($item['nama_lengkap'])) {
             $item = $this->request->getPost();
             if (count($item) > 0) {
                 try {
@@ -50,12 +50,11 @@ class Mahasiswa extends BaseController
                         "tanggal_lahir" => $item['tanggal_lahir'],
                         "jenis_kelamin" => $item['jenis_kelamin'],
                         "asal_sma" => $item['asal_sma'],
-                        "email_mhs_baru" => $item['email_mhs_baru'],
+                        "email" => $item['email'],
                         "no_tlp" => $item['no_tlp'],
-                        "status" => $item['status'],
-                        "kode_pos" => $item['kode_pos'],
                         "sumber_biaya" => $item['sumber_biaya'],
                         "informasi" => $item['informasi'],
+                        "jurusan_kode" => $item['jurusan_kode'],
                     ];
                     $this->mhs->update($id, $value);
                     return redirect()->to(base_url('mahasiswa'));
@@ -64,8 +63,8 @@ class Mahasiswa extends BaseController
                 }
             }
         } else {
-            $item['item'] = $this->mhs->where('nik', $id)->first();
-            return view('mahasiswa/ubah_mahasiswa', $item);
+            $item['item'] = $this->mhs->where('kode', $id)->first();
+            return view('mahasiswa/ubah', $item);
         }
     }
     public function hapus($id)
